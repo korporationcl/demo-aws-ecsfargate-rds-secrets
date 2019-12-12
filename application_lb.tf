@@ -56,4 +56,3 @@ resource "aws_alb_listener" "http" {
     type             = "forward"
   }
 }
-
