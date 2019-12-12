@@ -56,3 +56,8 @@ resource "aws_alb_listener" "http" {
     type             = "forward"
   }
 }
+
+output "lb_endpoint" {
+  description = "Load Balancer DNS endpoint"
+  value       = aws_alb.lb.dns_name
+}
