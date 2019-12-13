@@ -24,7 +24,9 @@ resource "aws_ecs_cluster" "main" {
 }
 
 resource "aws_ecs_task_definition" "service" {
-  family = "service"
+  family                   = "service"
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  requires_compatibilities = ["FARGATE"]
 
   container_definitions = <<EOF
 [
@@ -72,11 +74,11 @@ EOF
 }
 
 resource "aws_ecs_service" "main" {
-  name            = "webapp-service"
-  cluster         = aws_ecs_cluster.main.id
-  task_definition = aws_ecs_task_definition.service.arn
-  desired_count   = var.app_size
-  launch_type     = "FARGATE"
+  name               = "webapp-service"
+  cluster            = aws_ecs_cluster.main.id
+  task_definition    = aws_ecs_task_definition.service.arn
+  desired_count      = var.app_size
+  launch_type        = "FARGATE"
 
   network_configuration {
     security_groups  = [aws_security_group.ecs.id]

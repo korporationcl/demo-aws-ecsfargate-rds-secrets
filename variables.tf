@@ -1,7 +1,7 @@
 variable app_cpu {
   description = "CPU utilisation for webapp"
   type        = string
-  default     = "128"
+  default     = "256"
 }
 
 variable app_image {
@@ -13,7 +13,7 @@ variable app_image {
 variable app_memory {
   description = "Memory utilisation for webapp"
   type        = string
-  default     = "128"
+  default     = "512"
 }
 
 variable app_size {

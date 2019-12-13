@@ -38,3 +38,4 @@ $ terraform apply -var-file="./terraform.tfvars"
 
 7. Secrets by default are not encrypted in the state file (Terraform Cloud address this issue, but I can implement an S3 backend with encryption enabled) SSE which is `free`. Having said that, secrets are stored in AWS Secrets and Fargate should have access to them (someone needs to deploy them in a secure way).
 
+8. We need to specify the account ID in the variable file in order to get the ARN of the secrets (`terraform.tfvars`)
