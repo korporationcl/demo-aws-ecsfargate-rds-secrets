@@ -23,8 +23,8 @@ resource "aws_security_group" "lb" {
 }
 
 resource "aws_alb" "lb" {
-  name            = "lb"
-  subnets         = module.vpc.public_subnets
+  name    = "lb"
+  subnets = module.vpc.public_subnets
   security_groups = [
     aws_security_group.lb.id,
   ]
@@ -40,9 +40,9 @@ resource "aws_alb_target_group" "application" {
   target_type = "ip"
 
   health_check {
-    protocol            = "HTTP"
-    matcher             = "200"
-    path                = "/"
+    protocol = "HTTP"
+    matcher  = "200"
+    path     = "/"
   }
 }
 

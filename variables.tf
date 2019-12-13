@@ -25,7 +25,7 @@ variable app_size {
 variable app_port {
   description = "Port number application"
   type        = number
-  default     = 3000
+  default     = 80
 }
 
 variable app_autoscaling {
@@ -48,7 +48,7 @@ variable "aws_account_id" {
 }
 
 variable instance_types {
-  type    = map
+  type = map
   default = {
     db = "db.t2.micro"
   }

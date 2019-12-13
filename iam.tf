@@ -13,9 +13,9 @@ data "aws_iam_policy_document" "ecs_task_execution_role" {
   }
 
   statement {
-    sid       = ""
-    effect    = "Allow"
-    actions   = ["secretsmanager:GetSecretValue"]
+    sid     = ""
+    effect  = "Allow"
+    actions = ["secretsmanager:GetSecretValue"]
     resources = [
       "arn:aws:secretsmanager:${var.region}:${var.aws_account_id}:secret:db_user",
       "arn:aws:secretsmanager:${var.region}:${var.aws_account_id}:secret:db_password",

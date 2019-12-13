@@ -12,7 +12,7 @@ resource "aws_db_subnet_group" "default" {
 }
 
 resource "aws_db_instance" "database" {
-  allocated_storage    = 10 # This should be changed in prod and beyond
+  allocated_storage    = 10    # This should be changed in prod and beyond
   storage_encrypted    = false # This should be enabled in prod
   storage_type         = "gp2"
   engine               = "postgres"
@@ -32,7 +32,7 @@ resource "aws_security_group" "database" {
   ingress {
     from_port = 5432
     to_port   = 5432
-    protocol  = "tcp" 
+    protocol  = "tcp"
 
     security_groups = [
       aws_security_group.ecs.id,
