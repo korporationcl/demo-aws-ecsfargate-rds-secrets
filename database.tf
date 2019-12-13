@@ -21,7 +21,7 @@ resource "aws_db_instance" "database" {
   name                 = local.db_name
   username             = local.db_user
   password             = local.db_password
-  multi_az             = false # This should be enabled in prod
+  multi_az             = var.db_multiaz
   db_subnet_group_name = aws_db_subnet_group.default.name
 }
 

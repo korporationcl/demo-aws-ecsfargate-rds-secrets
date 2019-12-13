@@ -47,6 +47,16 @@ variable "aws_account_id" {
   type        = string
 }
 
+variable "db_encryption" {
+  description = "Enable encryption RDS storage, for production say yes."
+  default     = false
+}
+
+variable "db_multiaz" {
+  description = "Enable MultiAZ on RDS, for production say yes."
+  default     = false
+}
+
 variable instance_types {
   type = map
   default = {
